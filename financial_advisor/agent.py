@@ -26,3 +26,21 @@ root_agent = LlmAgent(
         generate_portfolio_allocation
     ]
 )
+
+if __name__ == "__main__":
+    print("--- Quantum Finance Manager Iniciado ---")
+    print("--- Digite sua pergunta sobre o mercado ou 'sair' para encerrar ---")
+    
+    while True:
+        try:
+            user_input = input("\nVocê: ")
+            if user_input.lower() in ['sair', 'exit', 'quit']:
+                print("Encerrando o agente. Até logo!")
+                break
+            
+            # Chama o agente para processar pergunta
+            resposta = root_agent.run(user_input)
+            print(f"Agente: {resposta}")
+            
+        except Exception as e:
+            print(f"Erro ao processar: {e}")
