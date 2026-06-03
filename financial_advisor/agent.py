@@ -1,6 +1,7 @@
 from dotenv import load_dotenv
 load_dotenv()
 
+from . import prompt
 from google.adk.agents import LlmAgent
 
 # funções dos subagentes
@@ -12,10 +13,7 @@ from .sub_agents.lead_advisor.tools import assess_investor_profile, generate_por
 root_agent = LlmAgent(
     name="quantum_finance_manager",
     model="gemini-3.5-flash",
-    instruction="""
-    Você é o orquestrador principal da Quantum Finance. 
-    ... (seu texto original) ...
-    """,
+    instruction=prompt.QUANTUM_FINANCE_MANAGER_PROMPT,
     tools=[
         get_stock_quote, 
         get_price,

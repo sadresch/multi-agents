@@ -9,7 +9,7 @@ O **Quantum Finance Manager** é uma solução multi-agente avançada, desenvolv
 O sistema é composto por um orquestrador central e três subagentes especialistas, cada um com responsabilidades e ferramentas dedicadas:
 
 ### 1. Orquestrador Central (`quantum_finance_manager`)
-Este é o "cérebro" do sistema. Ele interpreta a intenção do usuário e delega as tarefas para os subagentes apropriados, mantendo o contexto da conversa e garantindo que os dados sejam integrados em uma resposta final coesa.
+Gerencia o fluxo conversacional, interpreta a intenção do usuário e delega as tarefas para os subagentes, mantendo a coesão do contexto.
 
 ### 2. Agente de Dados B3 (`b3_data_agent`)
 Especialista em extração de dados técnicos e fundamentos de ativos listados na Bolsa do Brasil.
@@ -32,6 +32,15 @@ O consultor financeiro que sintetiza a análise técnica e macro em um plano de 
 * **Ferramentas:**
     * `assess_investor_profile`: Avalia o perfil de risco do usuário (Conservador, Moderado ou Arrojado) baseando-se em idade, horizonte de tempo e objetivos.
     * `generate_portfolio_allocation`: Constrói um portfólio detalhado, definindo percentuais de alocação por classe de ativos, com justificativas técnicas e orientações de rebalanceamento.
+
+## Especificações Técnicas: Tools e Prompts
+
+| Agente | Objetivo Principal | Diretriz do Prompt |
+|-----------|--------|----------------|
+| **Orquestrador** | Raciocínio e Delegação | Delegar tarefas ao agente especialista e manter a coesão.|
+| **B3 Data** | Precisão Factual | Proibir alucinações; priorizar dados reais da API Bolsai.|
+| **Market Analyst** | Contexto Macro | Explicar produtos via ótica da Selic/CDI com fontes oficiais.|
+| **Lead Advisor** | Consultoria Financeira | Construir portfólios baseados no perfil de risco do investidor.|
 
 ## Configuração e Instalação
 
